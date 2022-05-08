@@ -3,20 +3,14 @@
  */
 
 package org.springframework.beans.factory;
+import org.springframework.beans.BeansException;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class BeanFactory {
-    // bean 容器
-    private Map<String, Object> beanMap = new HashMap<>();
-
-    public void registerBean(String name, Object bean) {
-        beanMap.put(name, bean);
-    }
-
-    public Object getBean(String name) {
-        return beanMap.get(name);
-    }
-
+public interface BeanFactory {
+    /**
+     * 获取 bean
+     * @param name
+     * @return
+     * @throws BeansException
+     */
+    Object getBean(String name) throws BeansException;
 }
